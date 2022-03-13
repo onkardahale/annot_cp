@@ -1,4 +1,3 @@
-import annot_cp
 import argparse
 import fitz
 from pathlib import Path
