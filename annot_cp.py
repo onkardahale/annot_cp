@@ -32,18 +32,22 @@ for i in range(doc_from.pageCount):
                 highlight = page_to.add_highlight_annot(quad)
 
                 #copy info from 'from' pdf to the annot class
+                # also add content for popup
                 highlight.set_info(
                 title = annot.info["title"],
                 subject = annot.info["subject"],
                 creationDate = annot.info["creationDate"],
-                modDate = annot.info["modDate"]
+                modDate = annot.info["modDate"],
+                content = annot.info["content"]
                 )
+
+                highlight.set_popup(annot.rect.quad)
 
                 #save
                 highlight.update()
 
                 n += 4
-                
+
         # cp Text (sticky note) annotations
         if (annot.type[1] == "Text"):
 
@@ -54,12 +58,14 @@ for i in range(doc_from.pageCount):
             sticky_note = page_to.add_text_annot(point_like, annot.info["content"])
 
             #copy info from annot in page_from
-            sticky_note.set_info(
-            title = annot.info["title"],
-            subject = annot.info["subject"],
-            creationDate = annot.info["creationDate"],
-            modDate = annot.info["modDate"]
-            )
+            if (annot.info["content"] != ""):
+                sticky_note.set_info(
+                title = annot.info["title"],
+                subject = annot.info["subject"],
+                creationDate = annot.info["creationDate"],
+                modDate = annot.info["modDate"],
+                content = annot.info["content"]
+                )
 
             #save
             sticky_note.update()
