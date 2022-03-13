@@ -1,5 +1,5 @@
 # Annot_cp
-Command-line tool to merge Sticky Note &amp; Highlight annotations from two PDFs with identical content
+Command-line tool to merge two content identical PDFs with different sets of  Sticky Note &amp; Highlight annotations.
 
 ## Usage 
 ```
