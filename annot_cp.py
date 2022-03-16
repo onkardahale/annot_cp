@@ -94,9 +94,9 @@ try:
     doc_from = fitz.open(args.f)
     doc_to = fitz.open(args.t)
     if (doc_from.is_pdf != True):
-        print("{args.from} is not a PDF}")
+        print(f'{args.f} is not a PDF}')
     elif (doc_to.is_pdf != True):
-        print("{args.to} is not a PDF")
+        print(f'{args.t} is not a PDF')
     else:
 
         if(args.o is None):
